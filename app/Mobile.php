@@ -26,7 +26,19 @@ class Mobile
 		$this->provider->dialContact($contact);
 
 		return $this->provider->makeCall();
-	}
+    }
+    
+    public function sendSMSByNumber($number, $body)
+    {
+        if (empty($body)) return;
+
+        $checkNumber = ContactService::validateNumber($number);
+        if (!$checkNumber) {
+            return;
+        }
+
+        return $this->provider->sendSMS($number, $body);
+    }
 
 
 }
