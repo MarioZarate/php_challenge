@@ -2,6 +2,7 @@
 
 namespace App\Interfaces;
 
+use App\Call;
 use App\Contact;
 
 
